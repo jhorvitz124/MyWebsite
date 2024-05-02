@@ -39,9 +39,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background-image: url('background.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: #399edd;
     color: #fff;
     text-align: center;
     padding: 100px 0;
