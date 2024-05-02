@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects -</title>
+    <title>Projects - Jacob Horvitz</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
 
 <body>
@@ -23,16 +24,24 @@
 
     <section class="content">
         <h2>Pacman Eating Ghosts</h2>
-        <p>this uses random generators so the game is different every time. </p>
-        <p>Pacman eats the ghosts to stay alive. Im working on controls and different levels of the game to make it harder and harder as you go. </p>
+        <p>Jacob Horvitz</p>
+        <p>Use arrow keys to control the Pacman. Eat the ghosts to stay alive!</p>
         <div id="pacmanCanvas"></div>
+    </section>
+
+    <section class="content">
+        <h2>Chat with AI</h2>
+        <div id="chat-container">
+            <div id="chat-display"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Jacob Horvitz</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script>
         /*
         Jacob Horvitz 
@@ -278,6 +287,45 @@
                     this.lastMealTime = millis(); // Reset last meal time
                 }
             }
+        }
+
+        // Chatbot functionality
+        function sendMessage() {
+            let userMessage = document.getElementById("user-input").value;
+            let chatDisplay = document.getElementById("chat-display");
+            let userBubble = document.createElement("div");
+            userBubble.classList.add("user-bubble");
+            userBubble.innerText = userMessage;
+            chatDisplay.appendChild(userBubble);
+
+            // Request to the ChatGPT API
+            fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "sk-proj-BTVJwen9e5gL6vbEc5cQT3BlbkFJmgahdtLwwxzA9FOco6X3"
+                },
+                body: JSON.stringify({
+                    "model": "text-davinci-003",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": userMessage
+                        }
+                    ]
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let botMessage = data.choices[0].message.content;
+                    let botBubble = document.createElement("div");
+                    botBubble.classList.add("bot-bubble");
+                    botBubble.innerText = botMessage;
+                    chatDisplay.appendChild(botBubble);
+                })
+                .catch(error => console.error("Error:", error));
+
+            document.getElementById("user-input").value = "";
         }
     </script>
 </body>
