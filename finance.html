@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="Finance.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .live-stock-banner {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #stock-ticker {
+            font-size: 1.2rem;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -27,9 +44,12 @@
         </nav>
     </header>
 
+    <section class="live-stock-banner">
+        <div id="stock-ticker"></div>
+    </section>
+
     <section class="finance">
         <h2>Finance</h2>
-        <div class="live-stock-banner" id="stock-ticker"></div>
         <p>Check out this. I use <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a> to research stocks and what the market might do from day to day. This site allows me to see a broad analysis of the market to make investing less risky.</p>
     </section>
 
