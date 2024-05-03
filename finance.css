@@ -47,13 +47,20 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
+    position: fixed; /* Added */
+    width: 100%; /* Added */
+    top: 60px; /* Added */
+    z-index: 999; /* Added */
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
+    position: relative; /* Added */
+    animation-play-state: running; /* Added */
 }
+
 
 @keyframes marquee {
     from { transform: translateX(100%); }
