@@ -50,13 +50,12 @@ header {
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
-    animation: marquee 20s linear infinite;
 }
 
 .finance {
     max-width: 800px;
-    margin: auto;
-    padding: 150px 20px 50px;
+    margin: 150px auto 50px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -94,10 +93,4 @@ footer {
         display: block;
         margin-bottom: 20px;
     }
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
 }
