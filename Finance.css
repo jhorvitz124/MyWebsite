@@ -48,7 +48,9 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: relative;
+    position: sticky; /* Changed to sticky */
+    top: 100px; /* Adjusted */
+    width: 100%;
     z-index: 999;
 }
 
