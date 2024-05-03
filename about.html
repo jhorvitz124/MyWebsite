@@ -4,40 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Jacob Horvitz</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Jacob Horvitz</title>
+    <link rel="stylesheet" href="styleAbout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="logo">
+                <h1>Jacob Horvitz</h1>
+            </div>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="social.html">Social Media</a></li>
                 <li><a href="finance.html">Finance</a></li>
                 <li><a href="projects.html">Projects</a></li>
             </ul>
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <section class="content">
-        <h2>About Me</h2>
-        <p>
-            <strong>Major:</strong> Finance<br>
-            <strong>Interests:</strong>
-        </p>
-        <ul>
-            <li>My name is Jacob Horvitz. I enjoy playing tennis, hanging out with my friends, and golfing on the weekends.</li>
-            <li>I currently live in Maine, but grew up in Massachusetts.</li>
-            <li>I enjoy learning about coding and how to use it in the finance world.</li>
-            <li>I am currently attending the University of Maine for business. I hope to one day own by own business in realestate.</li>
-        </ul>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Jacob Horvitz's Website</h1>
+            <p>Explore my interests, projects, and more.</p>
+        </div>
+    </section>
+
+    <section class="about-me">
+        <div class="about-content">
+            <h2>About Me</h2>
+            <div class="about-details">
+                <div class="about-text">
+                    <p>
+                        <strong>Major:</strong> Finance<br>
+                        <strong>Interests:</strong>
+                    </p>
+                    <ul>
+                        <li>Playing tennis</li>
+                        <li>Hanging out with friends</li>
+                        <li>Making things</li>
+                        <li>Learning about coding and its applications in finance</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="profile.jpg" alt="Jacob Horvitz">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-media">
+        <h2>Social Media</h2>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/jhorvitz/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Jacob Horvitz</p>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
