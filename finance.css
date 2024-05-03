@@ -62,7 +62,7 @@ header {
 
 .finance {
     max-width: 800px;
-    margin: 100px auto 0; /* Adjusted margin */
+    margin: 160px auto 0; /* Adjusted margin */
     padding: 50px 20px;
     text-align: center;
 }
@@ -110,4 +110,9 @@ footer {
         display: block;
         margin-bottom: 20px;
     }
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
 }
