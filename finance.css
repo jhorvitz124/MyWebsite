@@ -47,29 +47,22 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: fixed; /* Added */
-    width: 100%; /* Added */
-    top: 60px; /* Added */
-    z-index: 999; /* Added */
+    position: fixed;
+    width: 100%;
+    top: 60px;
+    z-index: 100; /* Changed from 999 to 100 */
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
-    position: relative; /* Added */
-    animation-play-state: running; /* Added */
-}
-
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    display: inline-block; /* Added */
 }
 
 .finance {
     max-width: 800px;
-    margin: auto;
+    margin: 100px auto 0; /* Adjusted margin */
     padding: 50px 20px;
     text-align: center;
 }
