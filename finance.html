@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Horvitz</title>
-    <link rel="stylesheet" href="Finance.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -30,7 +30,9 @@
     </header>
 
     <section class="live-stock-banner">
-        <div id="stock-ticker" class="marquee"></div>
+        <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+            <span id="stock-ticker"></span>
+        </marquee>
     </section>
 
     <section class="finance">
@@ -47,7 +49,7 @@
     <script>
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "6GTPS3NUYBTTAZKC"; // Replace with your Alpha Vantage API key
+            var apiKey = "YOUR_API_KEY"; // Replace with your Alpha Vantage API key
             var symbol = "AAPL"; // Change the symbol if necessary
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
