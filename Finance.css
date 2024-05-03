@@ -1,4 +1,4 @@
-/* Finance.css */
+/* styles.css */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -54,7 +54,7 @@ header {
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
-    overflow: hidden;
+    animation: marquee 20s linear infinite;
 }
 
 .finance {
@@ -113,8 +113,4 @@ footer {
 @keyframes marquee {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
-}
-
-.marquee {
-    animation: marquee 20s linear infinite;
 }
