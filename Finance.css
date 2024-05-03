@@ -57,6 +57,8 @@ header {
     white-space: nowrap;
     animation: marquee 20s linear infinite;
     text-align: center;
+    position: relative; /* Added */
+    z-index: 1000; /* Added */
 }
 
 .finance {
