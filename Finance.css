@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 70px; /* Adjusted */
+    position: relative; /* Added */
 }
 
 header {
@@ -48,10 +48,11 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: fixed;
-    top: 70px; /* Adjusted */
+    position: absolute; /* Changed to absolute */
+    top: 60px; /* Adjusted */
+    left: 0;
     width: 100%;
-    z-index: 9999; /* Changed z-index */
+    z-index: 999; 
 }
 
 #stock-ticker {
