@@ -2,15 +2,14 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 100px; /* Adjusted */
 }
 
 header {
     background-color: #264653;
     padding: 20px 0;
-    position: sticky; /* Changed to sticky */
-    top: 0; /* Added */
-    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    z-index: 2; /* Changed z-index */
 }
 
 .logo h1 {
@@ -48,10 +47,10 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: sticky; /* Changed to sticky */
-    top: 100px; /* Adjusted */
+    position: fixed;
+    top: 70px; /* Adjusted */
     width: 100%;
-    z-index: 999;
+    z-index: 3; /* Changed z-index */
 }
 
 #stock-ticker {
