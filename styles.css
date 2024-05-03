@@ -54,7 +54,6 @@ header {
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
-    overflow: hidden;
     animation: marquee 20s linear infinite;
 }
 
