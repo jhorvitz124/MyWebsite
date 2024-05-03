@@ -52,6 +52,14 @@ header {
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.marquee {
     animation: marquee 20s linear infinite;
 }
 
@@ -67,9 +75,4 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-}
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
 }
