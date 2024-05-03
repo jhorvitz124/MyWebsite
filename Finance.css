@@ -48,7 +48,9 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: relative; /* Changed to relative */
+    position: fixed; /* Changed to relative */
+     top: 70px; /* Added */
+    width: 100%; /* Added */
     z-index: 999; /* Added */
 }
 
