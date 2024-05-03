@@ -1,103 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Horvitz</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #264653;
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .logo h1 {
-            margin: 0;
-        }
-
-        .nav-links {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .nav-links li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .live-stock-banner {
-            background-color: #2a9d8f;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        #stock-ticker {
-            font-size: 1.2rem;
-            white-space: nowrap;
-        }
-
-        .finance {
-            max-width: 800px;
-            margin: 150px auto 50px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer {
-            background-color: #264653;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .burger {
-                display: block;
-                float: right;
-                margin-right: 20px;
-                margin-top: -25px;
-                color: #fff;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .nav-active {
-                display: block;
-            }
-
-            .nav-links {
-                text-align: center;
-            }
-
-            .nav-links li {
-                display: block;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
@@ -118,7 +30,9 @@
     </header>
 
     <section class="live-stock-banner">
-        <div id="stock-ticker"></div>
+        <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();">
+            <span id="stock-ticker"></span>
+        </marquee>
     </section>
 
     <section class="finance">
@@ -130,10 +44,13 @@
         <p>&copy; 2024 Jacob Horvitz</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="app.js"></script>
     <script>
+        // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "6GTPS3NUYBTTAZKC";
-            var symbol = "AAPL";
+            var apiKey = "YOUR_API_KEY"; // Replace with your Alpha Vantage API key
+            var symbol = "AAPL"; // Change the symbol if necessary
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
             fetch(apiUrl)
@@ -159,4 +76,5 @@
         getStockData();
     </script>
 </body>
+
 </html>
