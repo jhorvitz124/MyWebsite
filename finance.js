@@ -1,6 +1,6 @@
 // Function to fetch stock data from Alpha Vantage API
 function getStockData() {
-    var apiKey = "YOUR_API_KEY"; // Replace with your Alpha Vantage API key
+    var apiKey = "6GTPS3NUYBTTAZKC"; // Replace with your Alpha Vantage API key
     var symbol = "AAPL"; // Change the symbol if necessary
     var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
