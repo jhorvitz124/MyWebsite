@@ -45,13 +45,13 @@ header {
     left: 0;
     width: 100%;
     z-index: 999;
+    text-align: center; /* Added */
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
-    text-align: center;
 }
 
 .finance {
