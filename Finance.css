@@ -39,17 +39,7 @@ header {
     background-color: #2a9d8f;
     color: white;
     padding: 10px 0;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    z-index: 999;
     text-align: center;
-}
-
-#stock-ticker {
-    font-size: 1.2rem;
-    white-space: nowrap;
 }
 
 .finance {
