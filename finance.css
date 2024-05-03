@@ -50,19 +50,19 @@ header {
     position: fixed;
     width: 100%;
     top: 60px;
-    z-index: 100; /* Changed from 999 to 100 */
+    z-index: 100;
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
-    display: inline-block; /* Added */
+    display: inline-block;
 }
 
 .finance {
     max-width: 800px;
-    margin: 160px auto 0; /* Adjusted margin */
+    margin: 160px auto 0;
     padding: 50px 20px;
     text-align: center;
 }
