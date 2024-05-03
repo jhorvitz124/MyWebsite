@@ -46,18 +46,12 @@ header {
     background-color: #2a9d8f;
     color: white;
     padding: 10px 0;
-    overflow: hidden;
 }
 
-.live-stock-banner span {
+#stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
-    animation: marquee 20s linear infinite;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    overflow: hidden;
 }
 
 .finance {
