@@ -2,19 +2,19 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    padding-top: 70px; /* Adjusted */
 }
 
 header {
     background-color: #264653;
-    color: white;
     padding: 20px 0;
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 1000;
 }
 
 .logo h1 {
+    color: #fff;
     margin: 0;
 }
 
@@ -36,17 +36,29 @@ header {
     font-weight: bold;
 }
 
+.burger {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 .live-stock-banner {
     background-color: #2a9d8f;
     color: white;
     padding: 10px 0;
-    text-align: center;
+    overflow: hidden;
+    position: fixed;
+    top: 70px; /* Adjusted */
+    width: 100%;
+    z-index: 9999; /* Changed z-index */
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
+    text-align: center;
 }
 
 .finance {
@@ -54,6 +66,25 @@ header {
     margin: auto;
     padding: 150px 20px 50px;
     text-align: center;
+}
+
+.social-media {
+    background-color: #2a9d8f;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+footer {
+    background-color: #264653;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
 
 @media screen and (max-width: 768px) {
