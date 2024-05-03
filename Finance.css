@@ -57,7 +57,7 @@ header {
 
 .finance {
     max-width: 800px;
-    margin: 100px auto 0;
+    margin: auto;
     padding: 50px 20px;
     text-align: center;
 }
