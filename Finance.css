@@ -1,3 +1,5 @@
+/* Finance.css */
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -52,15 +54,7 @@ header {
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
-}
-
-@keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
-.marquee {
-    animation: marquee 20s linear infinite;
+    overflow: hidden;
 }
 
 .finance {
@@ -70,9 +64,57 @@ header {
     text-align: center;
 }
 
+.social-media {
+    background-color: #2a9d8f;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
 footer {
     background-color: #264653;
     color: white;
     text-align: center;
     padding: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+        float: right;
+        margin-right: 20px;
+        margin-top: -25px;
+    }
+
+    .nav-active {
+        display: block;
+    }
+
+    .nav-links {
+        text-align: center;
+    }
+
+    .nav-links li {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.marquee {
+    animation: marquee 20s linear infinite;
 }
