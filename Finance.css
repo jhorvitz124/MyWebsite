@@ -47,36 +47,19 @@ header {
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: fixed;
-    width: 100%;
-    top: 60px;
-    z-index: 100;
 }
 
 #stock-ticker {
     font-size: 1.2rem;
     white-space: nowrap;
     animation: marquee 20s linear infinite;
-    display: inline-block;
 }
 
 .finance {
     max-width: 800px;
-    margin: 160px auto 0;
+    margin: 100px auto 0;
     padding: 50px 20px;
     text-align: center;
-}
-
-.social-media {
-    background-color: #2a9d8f;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0 10px;
 }
 
 footer {
@@ -84,32 +67,6 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .burger {
-        display: block;
-        float: right;
-        margin-right: 20px;
-        margin-top: -25px;
-    }
-
-    .nav-active {
-        display: block;
-    }
-
-    .nav-links {
-        text-align: center;
-    }
-
-    .nav-links li {
-        display: block;
-        margin-bottom: 20px;
-    }
 }
 
 @keyframes marquee {
