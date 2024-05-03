@@ -2,11 +2,11 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    position: relative; /* Added */
 }
 
 header {
     background-color: #264653;
+    color: white;
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -14,7 +14,6 @@ header {
 }
 
 .logo h1 {
-    color: #fff;
     margin: 0;
 }
 
@@ -36,23 +35,16 @@ header {
     font-weight: bold;
 }
 
-.burger {
-    display: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
 .live-stock-banner {
     background-color: #2a9d8f;
     color: white;
     padding: 10px 0;
     overflow: hidden;
-    position: absolute; /* Changed to absolute */
-    top: 60px; /* Adjusted */
+    position: fixed;
+    top: 60px;
     left: 0;
     width: 100%;
-    z-index: 999; 
+    z-index: 999;
 }
 
 #stock-ticker {
@@ -67,18 +59,6 @@ header {
     margin: auto;
     padding: 150px 20px 50px;
     text-align: center;
-}
-
-.social-media {
-    background-color: #2a9d8f;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0 10px;
 }
 
 footer {
@@ -98,6 +78,9 @@ footer {
         float: right;
         margin-right: 20px;
         margin-top: -25px;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
     }
 
     .nav-active {
