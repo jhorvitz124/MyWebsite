@@ -6,7 +6,8 @@
     position: fixed;
     top: 70px; /* Adjusted */
     width: 100%;
-    z-index: 1000; /* Changed z-index */
+    z-index: 999; /* Changed z-index */
+    display: block; /* Added */
 }
 
 #stock-ticker {
@@ -14,6 +15,7 @@
     white-space: nowrap;
     animation: marquee 20s linear infinite;
     text-align: center;
+    position: relative; /* Changed position */
 }
 
 .finance {
@@ -28,7 +30,7 @@ header {
     padding: 20px 0;
     position: fixed;
     width: 100%;
-    z-index: 1001; /* Changed z-index */
+    z-index: 1000; /* Changed z-index */
 }
 
 body {
