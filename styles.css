@@ -1,89 +1,117 @@
+/* styles.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
 }
 
 header {
-    background-color: #399edd;
-    color: #fff;
+    background-color: #264653;
     padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-nav ul {
+.logo h1 {
+    color: #fff;
+    margin: 0;
+}
+
+.nav-links {
     list-style-type: none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-nav ul li {
+.nav-links li {
     display: inline;
     margin-right: 20px;
 }
 
-nav ul li a {
+.nav-links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #399edd;
-    transition: background-color 0.3s;
+    font-weight: bold;
 }
 
-nav ul li a:hover {
-    background-color: #1e6ab8;
-    text-decoration: none;
-}
-
-.hero {
-    background-color: #399edd;
+.burger {
+    display: none;
     color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.live-stock-banner {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+#stock-ticker {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 20s linear infinite;
+}
+
+.finance {
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 20px;
     text-align: center;
-    padding: 100px 0;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+.social-media {
+    background-color: #2a9d8f;
+    padding: 50px 0;
+    text-align: center;
 }
 
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2, h3 {
-    color: #399edd;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-a {
-    color: #399edd;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
 }
 
 footer {
-    background-color: #399edd;
-    color: #fff;
+    background-color: #264653;
+    color: white;
     text-align: center;
     padding: 20px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .burger {
+        display: block;
+        float: right;
+        margin-right: 20px;
+        margin-top: -25px;
+    }
+
+    .nav-active {
+        display: block;
+    }
+
+    .nav-links {
+        text-align: center;
+    }
+
+    .nav-links li {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
