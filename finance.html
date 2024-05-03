@@ -27,7 +27,6 @@
         </nav>
     </header>
 
-    <!-- Add live-stock-banner here -->
     <section class="live-stock-banner">
         <div id="stock-ticker"></div>
     </section>
@@ -42,12 +41,10 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="app.js"></script>
     <script>
-        // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "6GTPS3NUYBTTAZKC"; // Replace with your Alpha Vantage API key
-            var symbol = "AAPL"; // Change the symbol if necessary
+            var apiKey = "6GTPS3NUYBTTAZKC";
+            var symbol = "AAPL";
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
             fetch(apiUrl)
