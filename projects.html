@@ -350,9 +350,11 @@
                     var change = parseFloat(stockData["09. change"]);
                     var changePercent = parseFloat(stockData["10. change percent"]);
                     var direction = change > 0 ? "up" : "down";
+                    var stockDate = stockData["07. latest trading day"];
 
                     document.getElementById("stock-ticker").innerHTML =
-                        `<p>Stock Symbol: ${symbol}</p>
+                        `<p>Date: ${stockDate}</p>
+                         <p>Stock Symbol: ${symbol}</p>
                          <p>Price: $${price}</p>
                          <p>Change: $${change} (${changePercent}%) <span style="color: ${direction === "up" ? "green" : "red"}"> ${direction}</span></p>`;
                 })
@@ -361,7 +363,6 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", getStockData);
-        geStockData();
         setInterval(getStockData, 6000);
     </script>
 </body>
