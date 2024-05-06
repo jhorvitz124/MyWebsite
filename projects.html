@@ -91,10 +91,11 @@
                 );
             }
 
-            drawPacman();
+            // Fetch stock data when the page loads
+            getStockData();
         }
 
-        function drawPacman() {
+        function draw() {
             background("gray");
 
             // Display and update entities
@@ -124,8 +125,6 @@
                 textAlign(CENTER, CENTER);
                 text("Game Over", width / 2, height / 2);
             }
-
-            requestAnimationFrame(drawPacman);
         }
 
         // Bubble class
@@ -341,7 +340,7 @@
 
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "UOHYLUKQ7YG67YQ1"; // Replace with your Alpha Vantage API key
+            var apiKey = "FMIPK2TTIN45RFSG"; // Replace with your Alpha Vantage API key
             var symbol = "AAPL"; // Change the symbol if necessary
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
@@ -369,7 +368,7 @@
         // Fetch stock data when the page loads
         window.addEventListener("load", () => {
             setup();
-            getStockData();
+            draw();
         });
     </script>
 </body>
