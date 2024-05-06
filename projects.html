@@ -361,6 +361,8 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", getStockData);
+        geStockData();
+        setInterval(getStockData, 6000);
     </script>
 </body>
 
