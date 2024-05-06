@@ -359,7 +359,10 @@
         }
 
         // Fetch stock data when the page loads
-        window.addEventListener("load", getStockData);
+        window.addEventListener("load", () => {
+            getStockData(); // Fetch the data immediately when the page loads
+            setInterval(getStockData, 60000); // Fetch the data every minute
+        });
     </script>
 </body>
 
