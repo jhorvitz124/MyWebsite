@@ -18,7 +18,7 @@
                 <li><a href="social.html">Social Media</a></li>
                 <li><a href="finance.html">Finance</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
+                <li><a href="law.html">Law</a></li>
             </ul>
         </nav>
     </header>
@@ -90,9 +90,6 @@
                     )
                 );
             }
-
-            // Fetch stock data when the page loads
-            getStockData();
         }
 
         function draw() {
@@ -340,7 +337,7 @@
 
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "FMIPK2TTIN45RFSG"; // Replace with your Alpha Vantage API key
+            var apiKey = "UOHYLUKQ7YG67YQ1"; // Replace with your Alpha Vantage API key
             var symbol = "AAPL"; // Change the symbol if necessary
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
@@ -359,17 +356,11 @@
                          <p>Price: $${price}</p>
                          <p>Change: $${change} (${changePercent}%) <span style="color: ${direction === "up" ? "green" : "red"}"> ${direction}</span></p>`;
                 })
-                .catch(error => console.error("Error fetching stock data:", error))
-                .finally(() => {
-                    setTimeout(getStockData, 10000); // Update stock data every 10 seconds
-                });
+                .catch(error => console.error("Error fetching stock data:", error));
         }
 
         // Fetch stock data when the page loads
-        window.addEventListener("load", () => {
-            setup();
-            draw();
-        });
+        window.addEventListener("load", getStockData);
     </script>
 </body>
 
