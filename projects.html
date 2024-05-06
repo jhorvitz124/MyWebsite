@@ -297,6 +297,7 @@
         }
 
         // Chatbot functionality
+        /*
         function sendMessage() {
             let userMessage = document.getElementById("user-input").value;
             let chatDisplay = document.getElementById("chat-display");
@@ -310,7 +311,7 @@
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "API-KEY"
+                    "Authorization": "Bearer YOUR_API_KEY" // Replace YOUR_API_KEY with your actual API key
                 },
                 body: JSON.stringify({
                     "model": "text-davinci-003",
@@ -334,10 +335,11 @@
 
             document.getElementById("user-input").value = "";
         }
+        */
 
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "HYWKHMIZPGUQHLWI"; // Replace with your Alpha Vantage API key
+            var apiKey = "UOHYLUKQ7YG67YQ1"; // Replace with your Alpha Vantage API key
             var symbol = "AAPL"; // Change the symbol if necessary
             var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
             var cachedStockData = getCachedStockData();
