@@ -50,6 +50,291 @@
     </footer>
 
     <script>
+        /*
+        Jacob Horvitz 
+        A5Q5 pacman eating ghosts
+        */
+        // Define arrays to hold our entities
+        let bubbles = [];
+        let pacmen = [];
+        let ghosts = [];
+        let gameOver = false;
+        let activePacmen = 0;
+
+        function setup() {
+            let canvas = createCanvas(600, 400);
+            canvas.parent('pacmanCanvas');
+
+            // Creates ghosts
+            for (let i = 0; i < 9; i++) {
+                ghosts.push(
+                    new Ghost(
+                        random(width),
+                        random(height),
+                        color(random(255), random(255), random(255))
+                    )
+                ); // Pass color argument
+            }
+            //this creates pacmans
+            for (let j = 0; j < 5; j++) {
+                pacmen.push(new Pacman(random(width), random(height)));
+                activePacmen++;
+            }
+            //creates a bubble bacground with random colors
+            for (let b = 0; b < 15; b++) {
+                bubbles.push(
+                    new Bubble(
+                        random(width),
+                        random(height),
+                        color(random(255), random(255), random(255))
+                    )
+                );
+            }
+        }
+
+        function draw() {
+            background("gray");
+
+            // Display and update entities
+            for (let bubble of bubbles) {
+                // Use for...of loop for clarity
+                bubble.display();
+                bubble.update();
+            }
+
+            for (let pacman of pacmen) {
+                // Use for...of loop for clarity
+                pacman.display();
+                pacman.update();
+                pacman.eat(ghosts); // Pass ghosts array to the eat function
+            }
+
+            for (let ghost of ghosts) {
+                ghost.display();
+                ghost.update();
+                ghost.reproduce();
+            }
+
+            if (gameOver) {
+                background(0);
+                fill(255);
+                textSize(32);
+                textAlign(CENTER, CENTER);
+                text("Game Over", width / 2, height / 2);
+            }
+        }
+
+        // Bubble class
+        class Bubble {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.ySpeed = random(-1, -0.5); // Rising speed
+                this.size = random(5, 15);
+                this.color = color;
+            }
+
+            display() {
+                fill(this.color);
+                noStroke();
+                ellipse(this.x, this.y, this.size, this.size);
+            }
+
+            update() {
+                this.y += this.ySpeed;
+                if (this.y < 0) {
+                    this.y = height; // Wrap around if bubble reaches top
+                }
+            }
+        }
+
+        // Ghost class
+        class Ghost {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.xSpeed = random(-1, 1);
+                this.ySpeed = random(-1, 1);
+                this.size = 40;
+                this.color = color;
+            }
+
+            display() {
+                // Body
+                fill(this.color);
+                rect(
+                    this.x - this.size / 2,
+                    this.y - this.size / 2,
+                    this.size,
+                    this.size / 2,
+                    10
+                );
+                // Eyes
+                fill(255);
+                ellipse(this.x - this.size / 4, this.y - this.size / 4, 10, 10);
+                ellipse(this.x + this.size / 4, this.y - this.size / 4, 10, 10);
+                fill(0);
+                ellipse(this.x - this.size / 4, this.y - this.size / 4, 4, 4);
+                ellipse(this.x + this.size / 4, this.y - this.size / 4, 4, 4);
+                // Mouth
+                stroke(0);
+                strokeWeight(2);
+                line(
+                    this.x - this.size / 4,
+                    this.y + this.size / 8,
+                    this.x + this.size / 4,
+                    this.y + this.size / 8
+                );
+            }
+
+            update() {
+                this.x += this.xSpeed;
+                this.y += this.ySpeed;
+
+                // Bounce off walls
+                if (this.x - this.size / 2 < 0 || this.x + this.size / 2 > width) {
+                    this.xSpeed *= -1;
+                }
+                if (this.y - this.size / 2 < 0 || this.y + this.size / 2 > height) {
+                    this.ySpeed *= -1;
+                }
+            }
+
+            reproduce() {
+                if (random(1) < 0.0015) {
+                    // Chance of reproducing
+                    ghosts.push(new Ghost(this.x, this.y, this.color)); // Add new ghost
+                }
+            }
+        }
+
+        // Pacman class
+        class Pacman {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.xSpeed = random(-2, 2);
+                this.ySpeed = random(-2, 2);
+                this.size = 30;
+                this.health = 100; // Initial health
+                this.lastMealTime = millis(); // Record last meal time
+                this.mouthOpen = true; // Mouth state
+            }
+
+            display() {
+                let brightness = map(this.health, 0, 100, 100, 255);
+                fill(255, 255, 0, brightness); // Yellow color with variable brightness
+                stroke("black");
+                if (this.mouthOpen) {
+                    arc(
+                        this.x,
+                        this.y,
+                        this.size,
+                        this.size,
+                        QUARTER_PI * 1,
+                        -QUARTER_PI * 1.2,
+                        PIE
+                    );
+                } else {
+                    ellipse(this.x, this.y, this.size, this.size);
+                }
+            }
+
+            update() {
+                this.x += this.xSpeed;
+                this.y += this.ySpeed;
+
+                // Bounce off walls
+                if (this.x < 0 || this.x > width) {
+                    this.xSpeed *= -1;
+                }
+                if (this.y < 0 || this.y > height) {
+                    this.ySpeed *= -1;
+                }
+
+                // Decrement health over time
+                this.decrementHealth();
+
+                // Check if health drops below zero
+                if (this.health <= 0) {
+                    // If health is zero or below, remove the pacman from the simulation
+                    activePacmen--;
+                    if (activePacmen === 0) {
+                        gameOver = true;
+                        noLoop(); // Stop the draw loop
+                    }
+                    pacmen.splice(pacmen.indexOf(this), 1);
+                }
+            }
+
+            eat(ghosts) {
+                for (let i = ghosts.length - 1; i >= 0; i--) {
+                    let d = dist(this.x, this.y, ghosts[i].x, ghosts[i].y);
+                    if (d < this.size / 2 + ghosts[i].size / 2) {
+                        ghosts.splice(i, 1); // Remove ghost if caught
+                        this.health = 100; // Reset health when pacman eats
+                        this.lastMealTime = millis(); // Record last meal time
+                        this.mouthOpen = false; // Close mouth
+                        // Set a timeout to open the mouth again after 0.5 seconds
+                        setTimeout(() => {
+                            this.mouthOpen = true;
+                        }, 500);
+                    }
+                }
+            }
+
+            // Method to decrement health over time
+            decrementHealth() {
+                let currentTime = millis();
+                let elapsedTime = (currentTime - this.lastMealTime) / 1000; // Convert milliseconds to seconds
+
+                // If more than 3 seconds have passed since the last meal, decrement health
+                if (elapsedTime > 3) {
+                    this.health -= 15; // Decrease health by 20
+                    this.lastMealTime = millis(); // Reset last meal time
+                }
+            }
+        }
+
+        // Chatbot functionality
+        function sendMessage() {
+            let userMessage = document.getElementById("user-input").value;
+            let chatDisplay = document.getElementById("chat-display");
+            let userBubble = document.createElement("div");
+            userBubble.classList.add("user-bubble");
+            userBubble.innerText = userMessage;
+            chatDisplay.appendChild(userBubble);
+
+            // Request to the ChatGPT API
+            fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "API-KEY"
+                },
+                body: JSON.stringify({
+                    "model": "text-davinci-003",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": userMessage
+                        }
+                    ]
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let botMessage = data.choices[0].message.content;
+                    let botBubble = document.createElement("div");
+                    botBubble.classList.add("bot-bubble");
+                    botBubble.innerText = botMessage;
+                    chatDisplay.appendChild(botBubble);
+                })
+                .catch(error => console.error("Error:", error));
+
+            document.getElementById("user-input").value = "";
+        }
+
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
             var apiKey = "UOHYLUKQ7YG67YQ1"; // Replace with your Alpha Vantage API key
