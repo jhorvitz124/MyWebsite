@@ -61,7 +61,7 @@
         let gameOver = false;
         let activePacmen = 0;
 
-        function setup() {
+        function setupPacman() {
             let canvas = createCanvas(600, 400);
             canvas.parent('pacmanCanvas');
 
@@ -91,11 +91,10 @@
                 );
             }
 
-            // Fetch stock data when the page loads
-            getStockData();
+            drawPacman();
         }
 
-        function draw() {
+        function drawPacman() {
             background("gray");
 
             // Display and update entities
@@ -125,6 +124,8 @@
                 textAlign(CENTER, CENTER);
                 text("Game Over", width / 2, height / 2);
             }
+
+            requestAnimationFrame(drawPacman);
         }
 
         // Bubble class
@@ -367,8 +368,8 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", () => {
-            setup();
-            draw();
+            setupPacman();
+            getStockData();
         });
     </script>
 </body>
