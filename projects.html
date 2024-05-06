@@ -90,6 +90,9 @@
                     )
                 );
             }
+
+            // Fetch stock data when the page loads
+            getStockData();
         }
 
         function draw() {
@@ -364,7 +367,6 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", () => {
-            getStockData();
             setup();
             draw();
         });
