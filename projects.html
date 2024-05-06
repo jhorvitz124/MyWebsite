@@ -61,7 +61,7 @@
         let gameOver = false;
         let activePacmen = 0;
 
-        function setupPacman() {
+        function setup() {
             let canvas = createCanvas(600, 400);
             canvas.parent('pacmanCanvas');
 
@@ -368,7 +368,7 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", () => {
-            setupPacman();
+            setup();
             getStockData();
         });
     </script>
