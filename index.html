@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="styleIndex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .random-design {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: #f2f2f2;
+        }
+
+        .random-design button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .random-design button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,12 +68,29 @@
         </div>
     </section>
 
+    <section class="random-design">
+        <button onclick="generateRandomDesign()">Generate Random Design</button>
+    </section>
+
     <footer>
         <p>&copy; 2024 Jacob Horvitz</p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="app.js"></script>
+
+    <script>
+        function generateRandomDesign() {
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            const randomSize = Math.floor(Math.random() * 200) + 50;
+            const randomShape = Math.random() < 0.5 ? "circle" : "square";
+
+            const designContainer = document.querySelector('.random-design');
+            designContainer.innerHTML = `
+                <div style="width: ${randomSize}px; height: ${randomSize}px; background-color: #${randomColor}; border-radius: ${randomShape === 'circle' ? '50%' : '0'};"></div>
+            `;
+        }
+    </script>
 </body>
 
 </html>
