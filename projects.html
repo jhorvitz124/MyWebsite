@@ -80,7 +80,7 @@
                 pacmen.push(new Pacman(random(width), random(height)));
                 activePacmen++;
             }
-            //creates a bubble background with random colors
+            //creates a bubble bacground with random colors
             for (let b = 0; b < 15; b++) {
                 bubbles.push(
                     new Bubble(
@@ -338,8 +338,7 @@
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
             var apiKey = "FMIPK2TTIN45RFSG"; // Replace with your Alpha Vantage API key
-            var symbol = "APPL"; // Change the symbol if necessary
-            var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
+            var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${apiKey}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
@@ -361,9 +360,6 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", getStockData);
-
-        // Update stock data every 30 seconds
-        setInterval(getStockData, 30000);
     </script>
 </body>
 
