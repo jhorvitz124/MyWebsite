@@ -80,7 +80,7 @@
                 pacmen.push(new Pacman(random(width), random(height)));
                 activePacmen++;
             }
-            //creates a bubble bacground with random colors
+            //creates a bubble background with random colors
             for (let b = 0; b < 15; b++) {
                 bubbles.push(
                     new Bubble(
@@ -361,6 +361,9 @@
 
         // Fetch stock data when the page loads
         window.addEventListener("load", getStockData);
+
+        // Update stock data every 30 seconds
+        setInterval(getStockData, 30000);
     </script>
 </body>
 
