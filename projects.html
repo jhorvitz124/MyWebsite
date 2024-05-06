@@ -18,7 +18,7 @@
                 <li><a href="social.html">Social Media</a></li>
                 <li><a href="finance.html">Finance</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
+                <li><a href="law.html">Law</a></li>
             </ul>
         </nav>
     </header>
@@ -337,8 +337,9 @@
 
         // Function to fetch stock data from Alpha Vantage API
         function getStockData() {
-            var apiKey = "FMIPK2TTIN45RFSG"; // Replace with your Alpha Vantage API key
-            var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=${apiKey}`;
+            var apiKey = "UOHYLUKQ7YG67YQ1"; // Replace with your Alpha Vantage API key
+            var symbol = "AAPL"; // Change the symbol if necessary
+            var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
@@ -359,10 +360,7 @@
         }
 
         // Fetch stock data when the page loads
-        window.addEventListener("load", () => {
-            getStockData(); // Fetch the data immediately when the page loads
-            setInterval(getStockData, 60000); // Fetch the data every minute
-        });
+        window.addEventListener("load", getStockData);
     </script>
 </body>
 
