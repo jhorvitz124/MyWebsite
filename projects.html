@@ -18,7 +18,7 @@
                 <li><a href="social.html">Social Media</a></li>
                 <li><a href="finance.html">Finance</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
+                <li><a href="law.html">Law</a></li>
             </ul>
         </nav>
     </header>
@@ -38,6 +38,11 @@
             <input type="text" id="user-input" placeholder="Type your message...">
             <button onclick="sendMessage()">Send</button>
         </div>
+    </section>
+
+    <section class="content">
+        <h2>Live Stock Data</h2>
+        <div id="stock-ticker"></div>
     </section>
 
     <footer>
@@ -329,6 +334,33 @@
 
             document.getElementById("user-input").value = "";
         }
+
+        // Function to fetch stock data from Alpha Vantage API
+        function getStockData() {
+            var apiKey = "FMIPK2TTIN45RFSG"; // Replace with your Alpha Vantage API key
+            var symbol = "AAPL"; // Change the symbol if necessary
+            var apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var stockData = data["Global Quote"];
+                    var symbol = stockData["01. symbol"];
+                    var price = parseFloat(stockData["05. price"]);
+                    var change = parseFloat(stockData["09. change"]);
+                    var changePercent = parseFloat(stockData["10. change percent"]);
+                    var direction = change > 0 ? "up" : "down";
+
+                    document.getElementById("stock-ticker").innerHTML =
+                        `<p>Stock Symbol: ${symbol}</p>
+                         <p>Price: $${price}</p>
+                         <p>Change: $${change} (${changePercent}%) <span style="color: ${direction === "up" ? "green" : "red"}"> ${direction}</span></p>`;
+                })
+                .catch(error => console.error("Error fetching stock data:", error));
+        }
+
+        // Fetch stock data when the page loads
+        window.addEventListener("load", getStockData);
     </script>
 </body>
 
