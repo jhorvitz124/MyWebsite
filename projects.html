@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="projects.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
-
 <body>
     <header>
         <nav>
@@ -45,6 +43,18 @@
         <div id="stock-ticker">Loading Stock Data...</div>
     </section>
 
+    <section class="content">
+        <h2>Blackjack Game</h2>
+        <div id="blackjack-container">
+            <button onclick="startBlackjack()">Start New Game</button>
+            <div id="player-hand"></div>
+            <div id="dealer-hand"></div>
+            <div id="result"></div>
+            <button onclick="hit()">Hit</button>
+            <button onclick="stand()">Stand</button>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2024 Jacob Horvitz</p>
     </footer>
@@ -58,7 +68,7 @@
         let bubbles = [];
         let pacmen = [];
         let ghosts = [];
-        let gameOver = false;
+        let gameOvers = false;
         let activePacmen = 0;
 
         function setup() {
@@ -115,7 +125,7 @@
                 ghost.reproduce();
             }
 
-            if (gameOver) {
+            if (gameOvers) {
                 background(0);
                 fill(255);
                 textSize(32);
@@ -297,7 +307,6 @@
         }
 
         // Chatbot functionality
-
         function sendMessage() {
             let userMessage = document.getElementById("user-input").value;
             let chatDisplay = document.getElementById("chat-display");
@@ -395,7 +404,111 @@
         // Fetch stock data when the page loads
         window.addEventListener("load", getStockData);
         setInterval(getStockData, 6000);
+
+        // Blackjack Game
+        let suits = ["Hearts", "Clubs", "Diamonds", "Spades"];
+        let values = [
+            "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
+        ];
+        let deck = [];
+        let playerHand = [];
+        let dealerHand = [];
+        let gameOver = false;
+        let result = "";
+
+        function startBlackjack() {
+            deck = createDeck();
+            shuffleDeck(deck);
+            playerHand = [getNextCard(), getNextCard()];
+            dealerHand = [getNextCard(), getNextCard()];
+            gameOver = false;
+            result = "";
+            updateHands();
+            document.getElementById("result").textContent = "";
+        }
+
+        function createDeck() {
+            let deck = [];
+            for (let i = 0; i < 6; i++) {
+                for (let suit of suits) {
+                    for (let value of values) {
+                        deck.push(`${value} of ${suit}`);
+                    }
+                }
+            }
+            return deck;
+        }
+
+        function shuffleDeck(deck) {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+        }
+
+        function getNextCard() {
+            return deck.pop();
+        }
+
+        function updateHands() {
+            document.getElementById("player-hand").textContent = `Player Hand: ${playerHand.join(", ")}`;
+            document.getElementById("dealer-hand").textContent = `Dealer Hand: ${dealerHand.join(", ")}`;
+        }
+
+        function hit() {
+            if (!gameOver) {
+                playerHand.push(getNextCard());
+                if (calculateScore(playerHand) > 21) {
+                    result = "Dealer Wins!";
+                    gameOver = true;
+                    document.getElementById("result").textContent = result;
+                    document.getElementById("dealer-hand").textContent = `Dealer Hand: ${dealerHand.join(", ")}`;
+                }
+                updateHands();
+            }
+        }
+
+        function stand() {
+            if (!gameOver) {
+                while (calculateScore(dealerHand) < 17) {
+                    dealerHand.push(getNextCard());
+                }
+                let playerScore = calculateScore(playerHand);
+                let dealerScore = calculateScore(dealerHand);
+                if (dealerScore > 21 || playerScore > dealerScore) {
+                    result = "Player Wins!";
+                } else if (playerScore < dealerScore) {
+                    result = "Dealer Wins!";
+                } else {
+                    result = "It's a Tie!";
+                }
+                gameOver = true;
+                document.getElementById("result").textContent = result;
+                document.getElementById("dealer-hand").textContent = `Dealer Hand: ${dealerHand.join(", ")}`;
+                updateHands();
+            }
+        }
+
+        function calculateScore(hand) {
+            let score = 0;
+            let numAces = 0;
+            for (let card of hand) {
+                let value = card.split(" ")[0];
+                if (value === 'A') {
+                    numAces++;
+                    score += 11;
+                } else if (value === 'K' || value === 'Q' || value === 'J') {
+                    score += 10;
+                } else {
+                    score += parseInt(value);
+                }
+            }
+            while (score > 21 && numAces > 0) {
+                score -= 10;
+                numAces--;
+            }
+            return score;
+        }
     </script>
 </body>
-
 </html>
