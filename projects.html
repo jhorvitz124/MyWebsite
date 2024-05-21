@@ -376,7 +376,7 @@
         function isCacheValid() {
             var currentTime = new Date().getTime();
             var lastFetchTime = parseInt(localStorage.getItem("lastFetchTime"));
-            return lastFetchTime && (currentTime - lastFetchTime < 5 * 60 * 1000); // Cache is valid for 5 minutes
+            return lastFetchTime && (currentTime - lastFetchTime < 5 * 60 * 10000); // Cache is valid for 5 minutes
         }
 
         // Function to cache stock data
