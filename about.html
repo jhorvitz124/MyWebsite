@@ -4,67 +4,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JH</title>
-    <link rel="stylesheet" href="styleAbout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Jacob Horvitz - Modern Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #264653;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            text-align: center;
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2a9d8f;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2a9d8f, #264653);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #264653;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #2a9d8f;
+        }
+
+        .content {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #264653;
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #264653;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header>
+        <div class="logo">
+            <h1>Jacob Horvitz</h1>
+        </div>
         <nav>
-            <div class="logo">
-                <h1>JH</h1>
-            </div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="social.html">Social Media</a></li>
-                <li><a href="finance.html">Finance</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
-                <li><a href="FlipperZero.html">FlipperZero</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="social.html">Social Media</a></li>
             </ul>
-            <div class="burger">
-                <i class="fas fa-bars"></i>
-            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Jacob Horvitz's Website</h1>
-            <p>Explore my interests, projects, and more.</p>
-        </div>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover my work, interests, and expertise.</p>
     </section>
 
-    <section class="about-me">
-        <div class="about-content">
-            <h2>About Me</h2>
-            <div class="about-details">
-                <div class="about-text">
-                    <p>
-                        <strong>Major:</strong> Finance<br>
-                        <strong>Interests:</strong>
-                    </p>
-                    <ul>
-                        <li>Playing tennis and golf</li>
-                        <li>Hanging out with friends</li>
-                        <li>Coding and 3D printing</li>
-                        <li>Learning about coding and its applications in finance</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                </div>
-            </div>
-        </div>
+    <section class="social-icons">
+        <a href="https://www.linkedin.com/in/jhorvitz/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/jhorvitz124" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.patreon.com/Jvitz" target="_blank"><i class="fab fa-patreon"></i></a>
     </section>
+
+    <section class="content">
+        <h2>About Me</h2>
+        <p>Hello! I'm Jacob, a finance major with a passion for technology, coding, and 3D printing. When I'm not working on projects, you can find me on the tennis court or learning about new advancements in finance and technology.</p>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Jacob Horvitz</p>
+        <p>&copy; 2024 Jacob Horvitz. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="app.js"></script>
 </body>
 
 </html>
