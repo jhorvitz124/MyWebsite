@@ -1,139 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Horvitz - Law Interests</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #264653;
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .logo h1 {
-            margin: 0;
-        }
-
-        .nav-links {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .nav-links li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .law-interests {
-            max-width: 800px;
-            margin: 150px auto 50px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .favorite-cases {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            text-align: left;
-            border: 1px solid #ccc;
-        }
-
-        footer {
-            background-color: #264653;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .burger {
-                display: block;
-                float: right;
-                margin-right: 20px;
-                margin-top: -25px;
-                color: #fff;
-                font-size: 1.5rem;
-                cursor: pointer;
-            }
-
-            .nav-active {
-                display: block;
-            }
-
-            .nav-links {
-                text-align: center;
-            }
-
-            .nav-links li {
-                display: block;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <title>Law Interests - Jacob Horvitz</title>
+    <link rel="stylesheet" href="main_styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
+        <div class="logo">
+            <h1>Jacob Horvitz</h1>
+        </div>
         <nav>
-            <div class="logo">
-                <h1>Jacob Horvitz</h1>
-            </div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="social.html">Social Media</a></li>
-                <li><a href="finance.html">Finance</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
-                 <li><a href="FlipperZero.html">FlipperZero</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="social.html">Social Media</a></li>
+                <li><a href="FlipperZero.html">FlipperZero</a></li>
             </ul>
-            <div class="burger">
-                <i class="fas fa-bars"></i>
-            </div>
         </nav>
     </header>
 
-    <div style="height: 80px;"></div> <!-- Added a placeholder to prevent content from moving up -->
-
-    <section class="law-interests">
-        <h2>Law Interests</h2>
-        <p>Criminal Law</p>
+    <section class="hero">
+        <h1>Law Interests</h1>
+        <p>Exploring legal cases and their impact on society.</p>
     </section>
 
-    <section class="favorite-cases">
+    <section class="content">
+        <h2>Focus Areas</h2>
+        <p>My interest in law revolves around its intersection with finance and technology, as well as its impact on broader societal structures. These areas of law are particularly fascinating to me:</p>
+        <ul>
+            <li>Criminal Law</li>
+            <li>Constitutional Law</li>
+            <li>Intellectual Property Law</li>
+            <li>Corporate Law</li>
+        </ul>
+
         <h2>Favorite Cases</h2>
         <ul>
-            <li>Marbury v. Madison (1803)</li>
-            <li>Tinker v. Des Moines Independent Community School District (1969)</li>
-            <li>New York Times Co. v. United States (1971)</li>
-            <!-- Add your favorite cases here -->
+            <li><strong>Marbury v. Madison (1803):</strong> Established the principle of judicial review.</li>
+            <li><strong>Tinker v. Des Moines (1969):</strong> Affirmed students' rights to free speech in schools.</li>
+            <li><strong>New York Times Co. v. United States (1971):</strong> Protected the freedom of the press under the First Amendment.</li>
         </ul>
     </section>
 
     <footer>
-        <p>&copy; 2024 Jacob Horvitz</p>
+        <p>&copy; 2024 Jacob Horvitz. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
