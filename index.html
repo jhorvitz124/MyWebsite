@@ -4,117 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Horvitz</title>
-    <link rel="stylesheet" href="styleIndex.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .random-design {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 300px;
-            background-color: #f2f2f2;
-        }
-
-        .random-shape {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-            position: absolute;
-            z-index: -1;
-            animation: move 10s infinite linear;
-        }
-
-        @keyframes move {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            50% {
-                transform: translate(200px, 200px);
-            }
-
-            100% {
-                transform: translate(0, 0);
-            }
-        }
-    </style>
+    <title>Home - Jacob Horvitz</title>
+    <link rel="stylesheet" href="main_styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
+        <div class="logo">
+            <h1>Jacob Horvitz</h1>
+        </div>
         <nav>
-            <div class="logo">
-                <h1>JH</h1>
-            </div>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="social.html">Social Media</a></li>
-                <li><a href="finance.html">Finance</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="Law.html">Law</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="social.html">Social Media</a></li>
                 <li><a href="FlipperZero.html">FlipperZero</a></li>
-                
             </ul>
-            <div class="burger">
-                <i class="fas fa-bars"></i>
-            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Jacob Horvitz's Website</h1>
-            <p>Explore my interests, projects, and more.</p>
-        </div>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Discover my work, interests, and expertise.</p>
     </section>
 
-    <section class="social-media">
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/jhorvitz/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.facebook.com/jacob.horvitz.77/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/jacobvitz2?igshid=cWVwajd5bGpmd3V6" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.patreon.com/Jvitz" target="_blank"><i class="fab fa-patreon"></i></a>
-        </div>
+    <section class="content">
+        <h2>About Me</h2>
+        <p>Hi, I'm Jacob Horvitz! A finance major with a passion for technology, coding, and 3D printing. Explore my portfolio to learn more about my projects and interests.</p>
     </section>
 
-    <section class="random-design">
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
-        <div class="random-shape"></div>
+    <section class="content">
+        <h2>Highlights</h2>
+        <ul>
+            <li>Extensive coding experience applied to finance and personal projects.</li>
+            <li>Passionate about combining creativity with technology through 3D printing.</li>
+            <li>Enthusiastic about continuous learning and personal development.</li>
+        </ul>
     </section>
 
     <footer>
-        <p>&copy; 2024 Jacob Horvitz</p>
+        <p>&copy; 2024 Jacob Horvitz. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="app.js"></script>
-
-    <script>
-        function generateRandomDesign() {
-            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-            const randomSize = Math.floor(Math.random() * 200) + 50;
-
-            const designContainer = document.querySelector('.random-design');
-            const shapes = document.querySelectorAll('.random-shape');
-            shapes.forEach(shape => {
-                shape.style.width = `${randomSize}px`;
-                shape.style.height = `${randomSize}px`;
-                shape.style.backgroundColor = `#${randomColor}`;
-            });
-        }
-    </script>
 </body>
 
 </html>
